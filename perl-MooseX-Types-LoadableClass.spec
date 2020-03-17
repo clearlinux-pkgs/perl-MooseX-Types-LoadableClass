@@ -4,12 +4,13 @@
 #
 Name     : perl-MooseX-Types-LoadableClass
 Version  : 0.015
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Types-LoadableClass-0.015.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Types-LoadableClass-0.015.tar.gz
 Summary  : 'ClassName type constraint with coercion to load the class.'
 Group    : Development/Tools
-License  : Artistic-1.0-Perl
+License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
+Requires: perl-MooseX-Types-LoadableClass-license = %{version}-%{release}
 Requires: perl-MooseX-Types-LoadableClass-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(B::Hooks::EndOfScope)
@@ -57,6 +58,14 @@ Requires: perl-MooseX-Types-LoadableClass = %{version}-%{release}
 dev components for the perl-MooseX-Types-LoadableClass package.
 
 
+%package license
+Summary: license components for the perl-MooseX-Types-LoadableClass package.
+Group: Default
+
+%description license
+license components for the perl-MooseX-Types-LoadableClass package.
+
+
 %package perl
 Summary: perl components for the perl-MooseX-Types-LoadableClass package.
 Group: Default
@@ -92,6 +101,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-MooseX-Types-LoadableClass
+cp %{_builddir}/MooseX-Types-LoadableClass-0.015/LICENCE %{buildroot}/usr/share/package-licenses/perl-MooseX-Types-LoadableClass/c8c0ad8e3cb7dee58a02780133fc8f79b45edaba
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -109,6 +120,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %defattr(-,root,root,-)
 /usr/share/man/man3/MooseX::Types::LoadableClass.3
 
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-MooseX-Types-LoadableClass/c8c0ad8e3cb7dee58a02780133fc8f79b45edaba
+
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/MooseX/Types/LoadableClass.pm
+/usr/lib/perl5/vendor_perl/5.30.2/MooseX/Types/LoadableClass.pm
