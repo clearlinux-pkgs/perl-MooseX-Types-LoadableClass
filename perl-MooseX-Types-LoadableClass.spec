@@ -4,7 +4,7 @@
 #
 Name     : perl-MooseX-Types-LoadableClass
 Version  : 0.015
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Types-LoadableClass-0.015.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/MooseX-Types-LoadableClass-0.015.tar.gz
 Summary  : 'ClassName type constraint with coercion to load the class.'
